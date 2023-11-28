@@ -23,12 +23,6 @@ public class Main {
 
                 String command = scanner.nextLine();
 
-                // Help
-                if (command.equals("help")) {
-
-                }
-
-                // Create
                 if ((command.equals("create")) ||
                         (command.equals("read")) ||
                         (command.equals("updae")) ||
@@ -38,49 +32,12 @@ public class Main {
                         commandScannerObj.setTodoList(list);
                         commandScannerObj.execute(scanner);
                     }
-
                 } else {
                     Commendable commandObj = CommandFactory.createCommand(command);
                     if (commandObj != null) {
                         commandObj.setTodoList(list);
                         commandObj.execute();
                     }
-
-                }
-
-                // Updae
-                if (command.equals("updae")) {
-
-                }
-
-                // delete
-                if (command.equals("delete")) {
-
-                }
-
-                // List
-                if (command.equals("list")) {
-
-                }
-
-                // Size
-                if (command.equals("size")) {
-
-                }
-
-                // reset
-                if (command.equals("reset")) {
-
-                }
-
-                // exit
-                if (command.equals("exit")) {
-
-                }
-
-                // Read
-                if (command.equals("read")) {
-
                 }
 
             }

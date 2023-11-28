@@ -8,7 +8,7 @@ public class DeleteCommand implements OperatableCURD {
 
     @Override
     public void execute(Scanner scanner) {
-        list.deleteTodoForId("100");
+        performExecute(scanner);
     }
 
     @Override
@@ -19,5 +19,18 @@ public class DeleteCommand implements OperatableCURD {
     @Override
     public void setTodoList(TodoListActionable todoList) {
         list = todoList;
+    }
+
+    private void performExecute(Scanner scanner) {
+        try {
+            System.out.println("Enter Task ID");
+            String id = scanner.nextLine();
+            Todo todo = list.deleteTodoForId(id);
+            System.out.println("Deleted item.");
+            System.out.println(todo.toString());
+        } finally {
+
+        }
+
     }
 }

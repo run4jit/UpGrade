@@ -105,4 +105,9 @@ public class TodoList implements TodoListActionable {
         System.out.println("help - get helpful information about the commands");
     }
 
+    @Override
+    public boolean isTaskExistForId(String id) {
+        return todoList.containsKey(id);
+    }
+
 }

@@ -8,7 +8,7 @@ public class ReadCommand implements OperatableCURD {
 
     @Override
     public void execute(Scanner scanner) {
-        list.readTodoForId("100");
+        performExecute(scanner);
     }
 
     @Override
@@ -19,5 +19,15 @@ public class ReadCommand implements OperatableCURD {
     @Override
     public void setTodoList(TodoListActionable todoList) {
         list = todoList;
+    }
+
+    private void performExecute(Scanner scanner) {
+        try {
+            System.out.println("Enter Task ID");
+            String id = scanner.nextLine();
+            list.readTodoForId(id);
+        } finally {
+
+        }
     }
 }

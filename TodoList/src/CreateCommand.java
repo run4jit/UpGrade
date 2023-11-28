@@ -1,5 +1,6 @@
 package TodoList.src;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class CreateCommand implements OperatableCURD {
@@ -8,8 +9,7 @@ public class CreateCommand implements OperatableCURD {
 
     @Override
     public void execute(Scanner scanner) {
-        Todo todo = Todo.defaultTodo();
-        list.createTodoList(todo);
+        performExecute(scanner);
     }
 
     @Override
@@ -20,6 +20,34 @@ public class CreateCommand implements OperatableCURD {
     @Override
     public void setTodoList(TodoListActionable todoList) {
         list = todoList;
+    }
+
+    private String randomGeneratedId() {
+        Random random = new Random();
+        return String.valueOf(random.nextInt(1000));
+    }
+
+    private void performExecute(Scanner scanner) {
+        try {
+            System.out.println("Enter Year");
+            String year = scanner.nextLine();
+            System.out.println("Enter Month");
+            String month = scanner.nextLine();
+            System.out.println("Enter day");
+            String day = scanner.nextLine();
+            System.out.println("Enter Task");
+            String task = scanner.nextLine();
+            String id = randomGeneratedId();
+            Todo todo = new Todo(year, month, day, id, task);
+
+            System.out.println("Todo task generated.");
+            System.out.println(todo.toString());
+
+            list.createTodoList(todo);
+        } finally {
+
+        }
+
     }
 
 }
